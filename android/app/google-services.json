@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "638003021582",
+    "project_id": "pequenosempreendedores-a20bf",
+    "storage_bucket": "pequenosempreendedores-a20bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638003021582:android:0b35cbe7027ab7b6beb95f",
+        "android_client_info": {
+          "package_name": "com.example.pequenos_empreendedores"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638003021582-8u344e4b99gavdmdntifk7cqp27bm457.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNqao9iPUkmzLU3qbB22ylgyKY-_x3SQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638003021582-8u344e4b99gavdmdntifk7cqp27bm457.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

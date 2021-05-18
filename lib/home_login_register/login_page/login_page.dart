@@ -1,23 +1,24 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pequenos_empreendedores/home_login_register/home_page/home_page.dart';
 
-class RegisterPage extends StatefulWidget {
-  //const HomePage({Key key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  //const LoginPage({Key key}) : super(key: key);
 
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
 
   String _email;
   String _password;
 
-  Future<void> _createUser() async {
+  Future<void> _login() async {
     try {
       UserCredential userCredential = await FirebaseAuth
           .instance
-          .createUserWithEmailAndPassword(email: _email, password: _password);
+          .signInWithEmailAndPassword(email: _email, password: _password);
       print("User: $userCredential");
     } on FirebaseAuthException catch (e) {
       print("Error: $e");
@@ -31,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("HomePage"),
+        title: Text("Login"),
       ),
       body: Center(
           child: Padding(
@@ -59,18 +60,27 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     MaterialButton(
-                      onPressed: _createUser,
-                      child: Text("Criar nova conta"),
-                    )
+                      onPressed: _login,
+                      child: Text("Login"),
+                    ),
+                    RaisedButton(
+                      child: Text("Voltar"),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context)  => HomePage()
+                            )
+                        );
+                      },
+                    ),
                   ],
                 )
-
               ],
             ),
           )
       ),
     );
   }
-
-
 }
+

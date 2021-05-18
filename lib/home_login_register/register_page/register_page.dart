@@ -1,23 +1,24 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pequenos_empreendedores/home_login_register/home_page/home_page.dart';
 
-class LoginPage extends StatefulWidget {
-  //const LoginPage({Key key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  //const HomePage({Key key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
 
   String _email;
   String _password;
 
-  Future<void> _login() async {
+  Future<void> _createUser() async {
     try {
       UserCredential userCredential = await FirebaseAuth
           .instance
-          .signInWithEmailAndPassword(email: _email, password: _password);
+          .createUserWithEmailAndPassword(email: _email, password: _password);
       print("User: $userCredential");
     } on FirebaseAuthException catch (e) {
       print("Error: $e");
@@ -31,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: Text("HomePage"),
       ),
       body: Center(
           child: Padding(
@@ -59,8 +60,19 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     MaterialButton(
-                      onPressed: _login,
-                      child: Text("Login"),
+                      onPressed: _createUser,
+                      child: Text("Criar nova conta"),
+                    ),
+                    RaisedButton(
+                      child: Text("Voltar"),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context)  => HomePage()
+                            )
+                        );
+                      },
                     ),
                   ],
                 )
@@ -71,5 +83,6 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
 
+
+}

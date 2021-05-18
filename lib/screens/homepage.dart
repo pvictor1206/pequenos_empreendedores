@@ -20,8 +20,8 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child:
         MaterialButton(
-          onPressed: () {
-
+          onPressed: () async{
+            await FirebaseAuth.instance.signOut();
           },
           child: Text("Criar nova conta"),
         ),

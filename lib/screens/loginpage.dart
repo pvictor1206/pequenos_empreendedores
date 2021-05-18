@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -8,8 +9,31 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  Future<void> _createUser() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.signInAnonymously();
+    } on FirebaseAuthException catch (e) {
+      print("Error: $e");
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Login"),
+      ),
+      body: Center(
+        child:
+        MaterialButton(
+          onPressed: _createUser,
+          child: Text("Entrar"),
+        ),
+      ),
+    );
   }
 }
+

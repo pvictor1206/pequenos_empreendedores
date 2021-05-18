@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pequenos_empreendedores/screens/homepage.dart';
@@ -37,7 +38,28 @@ class LandingPage extends StatelessWidget {
         }
 
         if(snapshot.connectionState == ConnectionState.done){
-          return HomePage();
+          return StreamBuilder(
+              stream: FirebaseAuth.instance.authStateChanges(),
+              builder: (context, snapshot) {
+                if(snapshot.connectionState == ConnectionState.active) {
+                  User user = snapshot.data;
+
+                  if(user == null) {
+                    return LoginPage();
+                  } else {
+                    return HomePage();
+
+                  }
+                }
+                return Scaffold(
+                  body: Center(
+                    child: Text("Checking authentication..."),
+                  ),
+                );
+
+              },
+
+          );
         }
 
         return Scaffold(

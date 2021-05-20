@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pequenos_empreendedores/home_login_register/home_page/home_page.dart';
+import 'package:pequenos_empreendedores/home_login_register/reset_senha/reset_senha.dart';
 import 'package:pequenos_empreendedores/manutencao_page/manutencao_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -91,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context)  => ManutencaoPage()
+                                builder: (context)  => ResetSenha()
                             )
                         );
                       },

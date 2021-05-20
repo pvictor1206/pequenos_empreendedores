@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("HomePage"),
+        centerTitle: true,
       ),
       body: Column(
           //mainAxisAlignment: MainAxisAlignment.center,

@@ -33,7 +33,7 @@ class LandingPage extends StatelessWidget {
 
                   // Usuario conectado ou desconectado
                   if(user == null) {
-                    return LoginPage();
+                    return ManutencaoPage();
                   } else {
                     return HomePage();
                   }

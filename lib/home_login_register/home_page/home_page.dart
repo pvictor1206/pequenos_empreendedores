@@ -20,49 +20,119 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: AppColors.fundoBasico,
         title: Text(
-            "HomePage", style: TextStyle(
-            color: AppColors.azulFonte,
-            fontFamily: "LilitaOne"),
+            "HomePage", style: TextStyle(color: AppColors.azulFonte),
         ),
         centerTitle: true,
       ),
-      body: Column(
+      body: SafeArea(
+        child: Stack(
+          children: <Widget>[
+            Container(
+              child: FractionallySizedBox(
+                heightFactor: 1.0,
+                widthFactor: 1.0,
+                //Colocar tela cheia
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/tela_padrao/tela.png"),
+                      fit: BoxFit.fill,
+                    )
+                  ),
+                ),
+              ),
+            ),
+        Column(
           //mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          //Editar os botoes
-          Container(
-            padding: EdgeInsets.only(top: 500.0),
-            child: Center(
-              child: RaisedButton(
-                child: Text("Login"),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context)  => LoginPage()
-                      )
-                  );
-                },
+          children: [
+            DecoratedBox(
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage("assets/images/tela.png"), fit: BoxFit.cover),
+                )
+            ),
+            //Editar os botoes
+            Container(
+              padding: EdgeInsets.only(top: 500.0),
+              child: Center(
+                child: RaisedButton(
+                  child: Text("Login"),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context)  => LoginPage()
+                        )
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-          Container(
-            child: Center(
-              child: RaisedButton(
-                child: Text("Registra-se"),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context)  => RegisterPage()
-                      )
-                  );
-                },
+            Container(
+              child: Center(
+                child: RaisedButton(
+                  child: Text("Registra-se"),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context)  => RegisterPage()
+                        )
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        ],
-      )
-    );
+          ],
+        ),
+      ]
+            )
+        ),
+      );
   }
 }
+
+/*
+Column(
+//mainAxisAlignment: MainAxisAlignment.center,
+children: [
+DecoratedBox(
+decoration: BoxDecoration(
+image: DecorationImage(image: AssetImage("assets/images/tela.png"), fit: BoxFit.cover),
+)
+),
+//Editar os botoes
+Container(
+padding: EdgeInsets.only(top: 500.0),
+child: Center(
+child: RaisedButton(
+child: Text("Login"),
+onPressed: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (context)  => LoginPage()
+)
+);
+},
+),
+),
+),
+Container(
+child: Center(
+child: RaisedButton(
+child: Text("Registra-se"),
+onPressed: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (context)  => RegisterPage()
+)
+);
+},
+),
+),
+),
+],
+)
+
+ */

@@ -46,12 +46,120 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: AppColors.fundoBasico,
         title: Text(
             "Login", style: TextStyle(
-            color: AppColors.azulFonte,
-            fontFamily: "LilitaOne"),
+            color: AppColors.azulFonte),
         ),
         centerTitle: true,
       ),
-      body: Form(
+      body: SafeArea(
+          child: Stack(
+              children: <Widget>[
+                Container(
+                  child: FractionallySizedBox(
+                    heightFactor: 1.0,
+                    widthFactor: 1.0,
+                    //Colocar tela cheia
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/tela_padrao/tela.png"),
+                            fit: BoxFit.fill,
+                          )
+                      ),
+                    ),
+                  ),
+                ),
+                Form(
+                  key: _formKey,
+                  child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextFormField(
+                              onChanged: (value) {
+                                _email = value;
+                              },
+                              decoration: InputDecoration(
+                                  hintText: "Email"
+                              ),
+                              keyboardType: TextInputType.emailAddress,
+                              validator: (text){
+                                if(text.isEmpty || !text.contains("@")){
+                                  return "E-mail Inválido!";
+                                }
+                              },
+                            ),
+                            TextFormField(
+                              onChanged: (value) {
+                                _password = value;
+                              },
+                              decoration: InputDecoration(
+                                  hintText: "Senha"
+                              ),
+                              obscureText: true,
+                              validator: (text) {
+                                if(text.isEmpty){
+                                  return "Senha Inválida";
+                                }
+                                else if(text.length <6){
+                                  return "Senha menor que 6 caracteres!";
+                                }
+                              },
+                            ),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: FlatButton(
+                                child: Text("Esqueci Senha"),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context)  => ResetSenha()
+                                      )
+                                  );
+                                },
+                              ),
+                            ),
+                            SizedBox(height: 16.0,), //Espaço
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                MaterialButton(
+                                  onPressed: () {
+                                    if(_formKey.currentState.validate()){
+                                      _login();
+                                    }
+                                  },
+                                  child: Text("Login"),
+                                ),
+                                RaisedButton(
+                                  child: Text("Voltar"),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context)  => HomePage()
+                                        )
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+                  ),
+                )
+              ]
+          )
+      ),
+    );
+  }
+}
+
+/*
+Form(
         key: _formKey,
         child: Center(
             child: Padding(
@@ -134,7 +242,4 @@ class _LoginPageState extends State<LoginPage> {
             )
         ),
       )
-    );
-  }
-}
-
+ */

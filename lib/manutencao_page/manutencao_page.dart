@@ -17,25 +17,70 @@ class ManutencaoPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text("EM MANUTENCAO..."),
-          ),
-          RaisedButton(
-            child: Text("Tela Inicial"),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context)  => HomePage()
-                  )
-              );
-            },
-          ),
-        ],
-      )
+      body: SafeArea(
+          child: Stack(
+              children: <Widget>[
+                Container(
+
+                  child: FractionallySizedBox(
+                    heightFactor: 1.0,
+                    widthFactor: 1.0,
+                    //Colocar tela cheia
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/tela_padrao/tela.png"),
+                            fit: BoxFit.fill,
+                          )
+                      ),
+                    ),
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Text("EM MANUTENCAO..."),
+                    ),
+                    RaisedButton(
+                      child: Text("Tela Inicial"),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context)  => HomePage()
+                            )
+                        );
+                      },
+                    ),
+                  ],
+                )
+              ]
+          )
+      ),
     );
   }
 }
+
+/*
+Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: [
+Center(
+child: Text("EM MANUTENCAO..."),
+),
+RaisedButton(
+child: Text("Tela Inicial"),
+onPressed: () {
+Navigator.push(
+context,
+MaterialPageRoute(
+builder: (context)  => HomePage()
+)
+);
+},
+),
+],
+)
+
+ */

@@ -45,8 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
         backgroundColor: AppColors.fundoBasico,
         title: Text(
             "Registra-se", style: TextStyle(
-        color: AppColors.azulFonte,
-            fontFamily: "LilitaOne"),
+        color: AppColors.azulFonte),
         ),
         centerTitle: true,
       ),

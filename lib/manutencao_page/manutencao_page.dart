@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pequenos_empreendedores/core/app_colors.dart';
 import 'package:pequenos_empreendedores/home_login_register/home_page/home_page.dart';
 
 class ManutencaoPage extends StatelessWidget {
@@ -8,7 +9,12 @@ class ManutencaoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ManutencaoPage"),
+        backgroundColor: AppColors.fundoBasico,
+        title: Text(
+            "ManutencaoPage", style: TextStyle(
+            color: AppColors.azulFonte,
+            fontFamily: "LilitaOne"),
+        ),
         centerTitle: true,
       ),
       body: Column(

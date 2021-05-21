@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pequenos_empreendedores/core/app_colors.dart';
 import 'package:pequenos_empreendedores/home_login_register/login_page/login_page.dart';
 
 class ResetSenha extends StatefulWidget {
@@ -18,7 +19,13 @@ class _ResetSenhaState extends State<ResetSenha> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Esqueci Senha"),
+        backgroundColor: AppColors.fundoBasico,
+        title: Text(
+            "Esqueci Senha", style: TextStyle(
+            color: AppColors.azulFonte,
+            fontFamily: "LilitaOne"),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

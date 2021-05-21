@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pequenos_empreendedores/home_login_register/login_page/login_page.dart';
 import 'package:pequenos_empreendedores/home_login_register/register_page/register_page.dart';
+import 'package:pequenos_empreendedores/core/app_colors.dart';
 
 class HomePage extends StatefulWidget {
   //const HomePage({Key key}) : super(key: key);
@@ -17,7 +18,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("HomePage"),
+        backgroundColor: AppColors.fundoBasico,
+        title: Text(
+            "HomePage", style: TextStyle(
+            color: AppColors.azulFonte,
+            fontFamily: "LilitaOne"),
+        ),
         centerTitle: true,
       ),
       body: Column(

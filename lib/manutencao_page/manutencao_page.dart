@@ -11,9 +11,10 @@ class ManutencaoPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.fundoBasico,
         title: Text(
-            "ManutencaoPage", style: TextStyle(
+            "AVISO", style: TextStyle(
             color: AppColors.azulFonte,
-            fontFamily: "LilitaOne"),
+            fontSize: 40
+        ),
         ),
         centerTitle: true,
       ),
@@ -21,7 +22,6 @@ class ManutencaoPage extends StatelessWidget {
           child: Stack(
               children: <Widget>[
                 Container(
-
                   child: FractionallySizedBox(
                     heightFactor: 1.0,
                     widthFactor: 1.0,
@@ -37,13 +37,24 @@ class ManutencaoPage extends StatelessWidget {
                   ),
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  //mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Center(
-                      child: Text("EM MANUTENCAO..."),
+                    SizedBox(height: 40.0,), //Espaço
+                    Container(
+                      child: Text("Estamos em \nManutenção",
+                        style: TextStyle(
+                    color: AppColors.azulFonte,
+                    fontSize: 45
+                ),),
                     ),
-                    RaisedButton(
-                      child: Text("Tela Inicial"),
+                    SizedBox(height: 20.0,), //Espaço
+                    Center(
+                      child: Container(
+                        child: Image.asset("assets/images/tela_padrao/imagem-manutencao.png"),
+                      ),
+                    ),
+                    FlatButton(
+                      child: Image.asset("assets/images/tela_padrao/botao-manutencao.png"),
                       onPressed: () {
                         Navigator.push(
                             context,
@@ -61,26 +72,3 @@ class ManutencaoPage extends StatelessWidget {
     );
   }
 }
-
-/*
-Column(
-mainAxisAlignment: MainAxisAlignment.center,
-children: [
-Center(
-child: Text("EM MANUTENCAO..."),
-),
-RaisedButton(
-child: Text("Tela Inicial"),
-onPressed: () {
-Navigator.push(
-context,
-MaterialPageRoute(
-builder: (context)  => HomePage()
-)
-);
-},
-),
-],
-)
-
- */

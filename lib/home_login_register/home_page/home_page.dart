@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pequenos_empreendedores/home_login_register/login_page/login_page.dart';
 import 'package:pequenos_empreendedores/home_login_register/register_page/register_page.dart';
@@ -20,7 +21,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: AppColors.fundoBasico,
         title: Text(
-            "HomePage", style: TextStyle(color: AppColors.azulFonte),
+            "INICIE SUA AVENTURA", style: TextStyle(
+            color: AppColors.azulFonte,
+            fontSize: 25
+        ),
         ),
         centerTitle: true,
       ),
@@ -45,17 +49,27 @@ class _HomePageState extends State<HomePage> {
         Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            DecoratedBox(
-                decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage("assets/images/tela.png"), fit: BoxFit.cover),
-                )
+            SizedBox(height: 50.0,), //Espaço
+            Container(
+              child: Image.asset("assets/images/tela_padrao/logo-menu.png"),
+            ),
+            SizedBox(height: 20.0,),
+            Container(
+              //padding: EdgeInsets.only(top: 450.0),
+              child: Center(
+                child: Text("Continuar \nAventura",
+                  style: TextStyle(
+                      color: AppColors.azulFonte,
+                      fontSize: 20
+                  ),
+                ),
+              ),
             ),
             //Editar os botoes
             Container(
-              padding: EdgeInsets.only(top: 500.0),
               child: Center(
-                child: RaisedButton(
-                  child: Text("Login"),
+                child: FlatButton(
+                  child: Image.asset("assets/images/tela_padrao/botao-entre-menu.png"),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -67,10 +81,21 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            SizedBox(height: 16.0,), //Espaço
             Container(
               child: Center(
-                child: RaisedButton(
-                  child: Text("Registra-se"),
+                child: Text("Nova Aventura",
+                  style: TextStyle(
+                      color: AppColors.azulFonte,
+                      fontSize: 20
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: FlatButton(
+                  child: Image.asset("assets/images/tela_padrao/botao-crie-conta-menu.png"),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -82,6 +107,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+
           ],
         ),
       ]
@@ -90,49 +116,3 @@ class _HomePageState extends State<HomePage> {
       );
   }
 }
-
-/*
-Column(
-//mainAxisAlignment: MainAxisAlignment.center,
-children: [
-DecoratedBox(
-decoration: BoxDecoration(
-image: DecorationImage(image: AssetImage("assets/images/tela.png"), fit: BoxFit.cover),
-)
-),
-//Editar os botoes
-Container(
-padding: EdgeInsets.only(top: 500.0),
-child: Center(
-child: RaisedButton(
-child: Text("Login"),
-onPressed: () {
-Navigator.push(
-context,
-MaterialPageRoute(
-builder: (context)  => LoginPage()
-)
-);
-},
-),
-),
-),
-Container(
-child: Center(
-child: RaisedButton(
-child: Text("Registra-se"),
-onPressed: () {
-Navigator.push(
-context,
-MaterialPageRoute(
-builder: (context)  => RegisterPage()
-)
-);
-},
-),
-),
-),
-],
-)
-
- */

@@ -52,6 +52,11 @@ flutter:
     - assets/images/botao-voltar.png
     - assets/images/botao-entrar.png
     - assets/images/botao-recuperar.png
+    - assets/images/botao-crie-conta-menu.png
+    - assets/images/botao-entre-menu.png
+    - assets/images/botao-manutencao.png
+    - assets/images/logo-menu.png
+    - assets/images/imagem-manutencao.png
 
 
   fonts:

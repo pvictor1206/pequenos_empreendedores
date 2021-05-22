@@ -49,6 +49,10 @@ flutter:
 
   assets:
     - assets/images/tela.png
+    - assets/images/botao-voltar.png
+    - assets/images/botao-entrar.png
+    - assets/images/botao-recuperar.png
+
 
   fonts:
     - family: LilitaOne

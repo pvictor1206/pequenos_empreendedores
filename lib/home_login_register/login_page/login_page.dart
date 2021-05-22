@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: AppColors.fundoBasico,
         title: Text(
             "Login", style: TextStyle(
-            color: AppColors.azulFonte),
+            color: AppColors.azulFonte, fontSize: 35),
         ),
         centerTitle: true,
       ),
@@ -83,6 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                               decoration: InputDecoration(
                                   hintText: "Email"
                               ),
+                              style: TextStyle(fontSize: 25),
                               keyboardType: TextInputType.emailAddress,
                               validator: (text){
                                 if(text.isEmpty || !text.contains("@")){
@@ -97,6 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                               decoration: InputDecoration(
                                   hintText: "Senha"
                               ),
+                              style: TextStyle(fontSize: 25),
                               obscureText: true,
                               validator: (text) {
                                 if(text.isEmpty){
@@ -110,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                             Align(
                               alignment: Alignment.centerRight,
                               child: FlatButton(
-                                child: Text("Esqueci Senha"),
+                                child: Text("Esqueci Senha", style: TextStyle(fontSize: 18),),
                                 onPressed: () {
                                   Navigator.push(
                                       context,
@@ -125,24 +127,24 @@ class _LoginPageState extends State<LoginPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                MaterialButton(
+                                FlatButton(
                                   onPressed: () {
                                     if(_formKey.currentState.validate()){
                                       _login();
                                     }
                                   },
-                                  child: Text("Login"),
+                                  child: Image.asset("assets/images/tela_padrao/botao-entrar.png"),
                                 ),
-                                RaisedButton(
-                                  child: Text("Voltar"),
+                                FlatButton(
                                   onPressed: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context)  => HomePage()
-                                        )
+                                        ),
                                     );
                                   },
+                                  child: Image.asset("assets/images/tela_padrao/botao-voltar.png"),
                                 ),
                               ],
                             ),

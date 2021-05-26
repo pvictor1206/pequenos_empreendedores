@@ -133,7 +133,8 @@ class _LoginPageState extends State<LoginPage> {
                                       _login();
                                     }
                                   },
-                                  child: Image.asset("assets/images/tela_padrao/botao-entrar.png"),
+                                  child: Image.asset("assets/images/tela_padrao/botao-entrar.png",
+                                    width: MediaQuery.of(context).size.width * 0.30,),
                                 ),
                                 FlatButton(
                                   onPressed: () {
@@ -144,7 +145,8 @@ class _LoginPageState extends State<LoginPage> {
                                         ),
                                     );
                                   },
-                                  child: Image.asset("assets/images/tela_padrao/botao-voltar.png"),
+                                  child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
+                                    width: MediaQuery.of(context).size.width * 0.30,),
                                 ),
                               ],
                             ),

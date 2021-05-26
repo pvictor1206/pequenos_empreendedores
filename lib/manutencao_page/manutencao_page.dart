@@ -54,7 +54,8 @@ class ManutencaoPage extends StatelessWidget {
                       ),
                     ),
                     FlatButton(
-                      child: Image.asset("assets/images/tela_padrao/botao-manutencao.png"),
+                      child: Image.asset("assets/images/tela_padrao/botao-manutencao.png",
+                        width: MediaQuery.of(context).size.width * 0.30,),
                       onPressed: () {
                         Navigator.push(
                             context,

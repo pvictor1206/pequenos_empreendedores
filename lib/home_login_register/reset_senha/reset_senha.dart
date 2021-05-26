@@ -79,14 +79,16 @@ class _ResetSenhaState extends State<ResetSenha> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FlatButton(
-                      child: Image.asset("assets/images/tela_padrao/botao-recuperar.png"),
+                      child: Image.asset("assets/images/tela_padrao/botao-recuperar.png",
+                        width: MediaQuery.of(context).size.width * 0.30,),
                       onPressed: () {
                         auth.sendPasswordResetEmail(email: _email);
                         Navigator.of(context).pop();
                       },
                     ),
                     FlatButton(
-                      child: Image.asset("assets/images/tela_padrao/botao-voltar.png"),
+                      child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
+                        width: MediaQuery.of(context).size.width * 0.30,),
                       onPressed: () {
                         Navigator.push(
                             context,

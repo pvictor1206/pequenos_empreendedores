@@ -32,6 +32,8 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           children: <Widget>[
             Container(
+              //width: MediaQuery.of(context).size.width,
+              //height: MediaQuery.of(context).size.height,
               child: FractionallySizedBox(
                 heightFactor: 1.0,
                 widthFactor: 1.0,
@@ -39,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/tela_padrao/tela.png"),
+                      image: AssetImage("assets/images/tela_padrao/tela.png",),
                       fit: BoxFit.fill,
                     )
                   ),
@@ -49,18 +51,19 @@ class _HomePageState extends State<HomePage> {
         Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 50.0,), //Espaço
+            SizedBox(height: MediaQuery.of(context).size.width * 0.10,), //Espaço
             Container(
-              child: Image.asset("assets/images/tela_padrao/logo-menu.png"),
+              child: Image.asset("assets/images/tela_padrao/logo-menu.png",
+                width: MediaQuery.of(context).size.width * 0.70,),
             ),
-            SizedBox(height: 20.0,),
+            SizedBox(height: MediaQuery.of(context).size.width * 0.01,), //Espaço
             Container(
               //padding: EdgeInsets.only(top: 450.0),
               child: Center(
                 child: Text("Continuar \nAventura",
                   style: TextStyle(
                       color: AppColors.azulFonte,
-                      fontSize: 20
+                      fontSize: 17
                   ),
                 ),
               ),
@@ -69,7 +72,8 @@ class _HomePageState extends State<HomePage> {
             Container(
               child: Center(
                 child: FlatButton(
-                  child: Image.asset("assets/images/tela_padrao/botao-entre-menu.png"),
+                  child: Image.asset("assets/images/tela_padrao/botao-entre-menu.png",
+                      width: MediaQuery.of(context).size.width * 0.30,),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -81,13 +85,13 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SizedBox(height: 16.0,), //Espaço
+            SizedBox(height: MediaQuery.of(context).size.width * 0.01,), //Espaço
             Container(
               child: Center(
                 child: Text("Nova Aventura",
                   style: TextStyle(
                       color: AppColors.azulFonte,
-                      fontSize: 20
+                      fontSize: 17
                   ),
                 ),
               ),
@@ -95,7 +99,8 @@ class _HomePageState extends State<HomePage> {
             Container(
               child: Center(
                 child: FlatButton(
-                  child: Image.asset("assets/images/tela_padrao/botao-crie-conta-menu.png"),
+                  child: Image.asset("assets/images/tela_padrao/botao-crie-conta-menu.png",
+                    width: MediaQuery.of(context).size.width * 0.30,),
                   onPressed: () {
                     Navigator.push(
                         context,

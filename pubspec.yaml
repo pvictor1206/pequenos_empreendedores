@@ -57,6 +57,11 @@ flutter:
     - assets/images/botao-manutencao.png
     - assets/images/logo-menu.png
     - assets/images/imagem-manutencao.png
+    - assets/images/opcao-menino.png
+    - assets/images/escolha-menino.png
+    - assets/images/escolha-menina.png
+    - assets/images/opcao-menina.png
+    - assets/images/botao-continuar.png
 
 
   fonts:

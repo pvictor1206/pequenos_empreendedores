@@ -39,7 +39,9 @@ class ManutencaoPage extends StatelessWidget {
                 Column(
                   //mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 40.0,), //Espaço
+
+                    SizedBox(height: MediaQuery.of(context).size.width * 0.05,),
+
                     Container(
                       child: Text("Estamos em \nManutenção",
                         style: TextStyle(
@@ -47,10 +49,13 @@ class ManutencaoPage extends StatelessWidget {
                     fontSize: 45
                 ),),
                     ),
-                    SizedBox(height: 20.0,), //Espaço
+
+                    SizedBox(height: MediaQuery.of(context).size.width * 0.05,),
+
                     Center(
                       child: Container(
-                        child: Image.asset("assets/images/tela_padrao/imagem-manutencao.png"),
+                        child: Image.asset("assets/images/tela_padrao/imagem-manutencao.png",
+                          width: MediaQuery.of(context).size.width * 0.70,),
                       ),
                     ),
                     FlatButton(

@@ -123,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 16.0,), //Espaço
+                            SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [

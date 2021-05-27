@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pequenos_empreendedores/home_login_register/register_pages/nome_page/nome_page.dart';
 import 'package:pequenos_empreendedores/manutencao_page/manutencao_page.dart';
 
 import '../../../core/app_colors.dart';
 import '../../home_page/home_page.dart';
+import '../home_register_page.dart';
 
 class SexoPage extends StatefulWidget {
   const SexoPage({Key key}) : super(key: key);
@@ -111,7 +113,7 @@ class _SexoPageState extends State<SexoPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context)  => HomePage()
+                            builder: (context)  => HomeRegisterPage()
                         ),
                       );
                     },
@@ -123,7 +125,7 @@ class _SexoPageState extends State<SexoPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context)  => ManutencaoPage()
+                            builder: (context)  => NomePage()
                         ),
                       );
                     },

@@ -62,6 +62,10 @@ flutter:
     - assets/images/escolha-menina.png
     - assets/images/opcao-menina.png
     - assets/images/botao-continuar.png
+    - assets/images/idade-menina.png
+    - assets/images/idade-menino.png
+    - assets/images/nome-menino.png
+    - assets/images/nome-menina.png
 
 
   fonts:

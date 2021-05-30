@@ -52,6 +52,15 @@ class _NomePageState extends State<NomePage> {
             children: [
               SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
 
+              Container(
+                child: Center(
+                  child: Container(
+                    child: Image.asset("assets/images/tela_registro/idade-menino.png",
+                      width: MediaQuery.of(context).size.width * 0.75,),
+                  ),
+                ),
+              ),
+
               Form(
                 key: _formKey,
                 child: Center(

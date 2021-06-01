@@ -68,6 +68,9 @@ flutter:
     - assets/images/idade-menino.png
     - assets/images/nome-menino.png
     - assets/images/nome-menina.png
+    - assets/images/botao-aumentar.png
+    - assets/images/botao-diminuir.png
+    - assets/images/tela-nome-menino.png
 
 
   fonts:

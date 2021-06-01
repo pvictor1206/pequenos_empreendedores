@@ -1,25 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:pequenos_empreendedores/core/app_colors.dart';
-import 'package:pequenos_empreendedores/home_login_register/register_pages/idade_page/idade_page.dart';
-import 'package:pequenos_empreendedores/home_login_register/register_pages/tela_sexo/sexo_page.dart';
+import 'package:pequenos_empreendedores/home_login_register/register_pages/nome_page/nome_page.dart';
 import 'package:pequenos_empreendedores/manutencao_page/manutencao_page.dart';
 
-
-class NomePage extends StatefulWidget {
-  //const NomePage({Key key}) : super(key: key);
+class IdadePage extends StatefulWidget {
+  const IdadePage({Key key}) : super(key: key);
 
   @override
-  _NomePageState createState() => _NomePageState();
+  _IdadePageState createState() => _IdadePageState();
 }
 
-class _NomePageState extends State<NomePage> {
+class _IdadePageState extends State<IdadePage> {
 
-  //TextEditingController txtnome = TextEditingController();
+  int _idade = 8;
 
-  // Para passar valores entre telas precisa de um construtor que é POO
-  String _nome;
+  /*
+  As funcoes de Somar e diminuir idade estão bugadas
+   */
 
-  final _formKey = GlobalKey<FormState>();
+  void _somaIdade(){
+    if(_idade >= 8 && 15 >= _idade){
+      setState(() {
+        _idade += 1;
+      });
+    }
+  }
+
+  void _diminuirIdade(){
+    if(_idade >= 8 && 15 >= _idade){
+      setState(() {
+        _idade -= 1;
+      });
+    }
+  }
 
 
   @override
@@ -28,7 +41,7 @@ class _NomePageState extends State<NomePage> {
       appBar: AppBar(
         backgroundColor: AppColors.fundoBasico,
         title: Text(
-          "MEU NOME É...", style: TextStyle(
+          "EU TENHO...", style: TextStyle(
             color: AppColors.azulFonte, fontSize: 35),
         ),
         centerTitle: true,
@@ -57,33 +70,38 @@ class _NomePageState extends State<NomePage> {
               Container(
                 child: Center(
                   child: Container(
-                    child: Image.asset("assets/images/tela_registro/nome-menino.png",
+                    child: Image.asset("assets/images/tela_registro/idade-menino.png",
                       width: MediaQuery.of(context).size.width * 0.75,),
                   ),
                 ),
               ),
 
-              Form(
-                key: _formKey,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.text,
-                      //controller: txtnome,
-                      // Ver se da certo
-                      onSaved: (value) {
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FlatButton(
+                      onPressed: (){
                         setState(() {
-                          _nome = value;
+                          _idade -= 1;
                         });
                       },
-                      decoration: InputDecoration(
-                          hintText: "Nome"
-                      ),
-                      style: TextStyle(fontSize: 25),
-                    ),
+                      child: Image.asset("assets/images/tela_padrao/botao-diminuir.png",),
                   ),
-                ),
+
+                  Text("$_idade", style: TextStyle(fontSize: 20, color: AppColors.azulFonte),),
+
+                  FlatButton(
+                    onPressed: (){
+                      setState(() {
+                        _idade += 1;
+                      });
+                    },
+                    child: Image.asset("assets/images/tela_padrao/botao-aumentar.png"),
+                  ),
+
+                  Text("ANOS",style: TextStyle(fontSize: 25, color: AppColors.azulFonte),),
+
+                ],
               ),
 
               SizedBox(height: MediaQuery.of(context).size.width * 0.1,),
@@ -96,7 +114,7 @@ class _NomePageState extends State<NomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context)  => SexoPage()
+                            builder: (context)  => NomePage()
                         ),
                       );
                     },
@@ -108,7 +126,7 @@ class _NomePageState extends State<NomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context)  => IdadePage()
+                            builder: (context)  => ManutencaoPage()
                         ),
                       );
                     },

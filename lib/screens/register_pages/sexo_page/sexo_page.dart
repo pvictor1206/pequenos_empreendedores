@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pequenos_empreendedores/home_login_register/register_pages/nome_page/nome_page.dart';
-import 'package:pequenos_empreendedores/manutencao_page/manutencao_page.dart';
+import 'package:pequenos_empreendedores/screens/register_pages/nome_page/nome_page.dart';
 
 import '../../../core/app_colors.dart';
 import '../../home_page/home_page.dart';
@@ -108,18 +107,6 @@ class _SexoPageState extends State<SexoPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context)  => HomeRegisterPage()
-                        ),
-                      );
-                    },
-                    child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
-                      width: MediaQuery.of(context).size.width * 0.30,),
-                  ),
                   FlatButton(
                     onPressed: () {
                       Navigator.push(

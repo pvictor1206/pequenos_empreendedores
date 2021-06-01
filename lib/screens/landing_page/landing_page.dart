@@ -1,10 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:pequenos_empreendedores/home_login_register/home_page/home_page.dart';
-import 'package:pequenos_empreendedores/home_login_register/login_page/login_page.dart';
-import 'package:pequenos_empreendedores/manutencao_page/manutencao_page.dart';
-
+import 'package:pequenos_empreendedores/screens/home_page/home_page.dart';
 
 class LandingPage extends StatelessWidget {
   //const LandingPage({Key key}) : super(key: key);

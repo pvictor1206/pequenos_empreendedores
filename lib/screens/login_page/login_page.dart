@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pequenos_empreendedores/core/app_colors.dart';
-import 'package:pequenos_empreendedores/home_login_register/home_page/home_page.dart';
-import 'package:pequenos_empreendedores/home_login_register/reset_senha/reset_senha.dart';
-import 'package:pequenos_empreendedores/manutencao_page/manutencao_page.dart';
+import 'package:pequenos_empreendedores/screens/home_page/home_page.dart';
+import 'package:pequenos_empreendedores/screens/manutencao_page/manutencao_page.dart';
+import 'package:pequenos_empreendedores/screens/reset_senha/reset_senha.dart';
 
 class LoginPage extends StatefulWidget {
   //const LoginPage({Key key}) : super(key: key);

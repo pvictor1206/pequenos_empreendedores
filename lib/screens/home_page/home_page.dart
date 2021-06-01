@@ -1,11 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pequenos_empreendedores/home_login_register/login_page/login_page.dart';
-import 'package:pequenos_empreendedores/home_login_register/register_page/register_page.dart';
 import 'package:pequenos_empreendedores/core/app_colors.dart';
-import 'package:pequenos_empreendedores/home_login_register/register_pages/home_register_page.dart';
-import 'package:pequenos_empreendedores/home_login_register/register_pages/tela_sexo/sexo_page.dart';
+import 'package:pequenos_empreendedores/screens/login_page/login_page.dart';
+import 'package:pequenos_empreendedores/screens/register_pages/home_register_page.dart';
 
 class HomePage extends StatefulWidget {
   //const HomePage({Key key}) : super(key: key);

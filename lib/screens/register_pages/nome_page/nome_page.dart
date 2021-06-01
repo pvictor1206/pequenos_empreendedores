@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pequenos_empreendedores/core/app_colors.dart';
-import 'package:pequenos_empreendedores/home_login_register/register_pages/idade_page/idade_page.dart';
-import 'package:pequenos_empreendedores/home_login_register/register_pages/tela_sexo/sexo_page.dart';
-import 'package:pequenos_empreendedores/manutencao_page/manutencao_page.dart';
-
+import 'package:pequenos_empreendedores/screens/register_pages/idade_page/idade_page.dart';
+import 'package:pequenos_empreendedores/screens/register_pages/sexo_page/sexo_page.dart';
 
 class NomePage extends StatefulWidget {
   //const NomePage({Key key}) : super(key: key);

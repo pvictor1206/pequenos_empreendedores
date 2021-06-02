@@ -20,6 +20,7 @@ class _NomePageState extends State<NomePage> {
   final _formKey = GlobalKey<FormState>();
 
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,17 +50,9 @@ class _NomePageState extends State<NomePage> {
             ),
           ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
-
-              Container(
-                child: Center(
-                  child: Container(
-                    child: Image.asset("assets/images/tela_registro/nome-menino.png",
-                      width: MediaQuery.of(context).size.width * 0.75,),
-                  ),
-                ),
-              ),
 
               Form(
                 key: _formKey,
@@ -79,6 +72,11 @@ class _NomePageState extends State<NomePage> {
                           hintText: "Nome"
                       ),
                       style: TextStyle(fontSize: 25),
+                      validator: (text){
+                        if(text.isEmpty){
+                          return "Digite um nome";
+                        }
+                      },
                     ),
                   ),
                 ),
@@ -103,12 +101,14 @@ class _NomePageState extends State<NomePage> {
                   ),
                   FlatButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context)  => IdadePage()
-                        ),
-                      );
+                      if(_formKey.currentState.validate()){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context)  => IdadePage()
+                          ),
+                        );
+                      }
                     },
                     child: Image.asset("assets/images/tela_padrao/botao-continuar.png",
                       width: MediaQuery.of(context).size.width * 0.30,),

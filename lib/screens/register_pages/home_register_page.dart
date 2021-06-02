@@ -46,7 +46,7 @@ class _HomeRegisterPageState extends State<HomeRegisterPage> {
           backgroundColor: AppColors.fundoBasico,
           title: Text(
             "Registra-se", style: TextStyle(
-              color: AppColors.azulFonte),
+              color: AppColors.azulFonte, fontSize: 35),
           ),
           centerTitle: true,
         ),
@@ -82,6 +82,7 @@ class _HomeRegisterPageState extends State<HomeRegisterPage> {
                           decoration: InputDecoration(
                               hintText: "Email"
                           ),
+                          style: TextStyle(fontSize: 25),
                           keyboardType: TextInputType.emailAddress,
                           validator: (text){
                             if(text.isEmpty || !text.contains("@")){
@@ -96,6 +97,7 @@ class _HomeRegisterPageState extends State<HomeRegisterPage> {
                           decoration: InputDecoration(
                               hintText: "Senha"
                           ),
+                          style: TextStyle(fontSize: 25),
                           obscureText: true,
                           validator: (text) {
                             if(text.isEmpty){

@@ -49,19 +49,11 @@ class _IdadePageState extends State<IdadePage> {
       ),
       body: Stack(
         children: <Widget>[
-          Container(
-            child: FractionallySizedBox(
-              heightFactor: 1.0,
-              widthFactor: 1.0,
-              //Colocar tela cheia
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/tela_padrao/tela.png"),
-                      fit: BoxFit.fill,
-                    )
-                ),
-              ),
+          Positioned(
+            top: 0.0,
+            child: Image.asset(
+              'assets/images/tela_padrao/tela.png',
+              fit: BoxFit.fill,
             ),
           ),
           Column(

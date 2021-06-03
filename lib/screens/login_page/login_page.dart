@@ -53,107 +53,102 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
           child: Stack(
               children: <Widget>[
-                Container(
-                  child: FractionallySizedBox(
-                    heightFactor: 1.0,
-                    widthFactor: 1.0,
-                    //Colocar tela cheia
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("assets/images/tela_padrao/tela.png"),
-                            fit: BoxFit.fill,
-                          )
-                      ),
-                    ),
+                Positioned(
+                  top: 0.0,
+                  child: Image.asset(
+                    'assets/images/tela_padrao/tela.png',
+                    fit: BoxFit.fill,
                   ),
                 ),
-                Form(
-                  key: _formKey,
-                  child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextFormField(
-                              onChanged: (value) {
-                                _email = value;
-                              },
-                              decoration: InputDecoration(
-                                  hintText: "Email"
-                              ),
-                              style: TextStyle(fontSize: 25),
-                              keyboardType: TextInputType.emailAddress,
-                              validator: (text){
-                                if(text.isEmpty || !text.contains("@")){
-                                  return "E-mail Inválido!";
-                                }
-                              },
-                            ),
-                            TextFormField(
-                              onChanged: (value) {
-                                _password = value;
-                              },
-                              decoration: InputDecoration(
-                                  hintText: "Senha"
-                              ),
-                              style: TextStyle(fontSize: 25),
-                              obscureText: true,
-                              validator: (text) {
-                                if(text.isEmpty){
-                                  return "Senha Inválida";
-                                }
-                                else if(text.length <6){
-                                  return "Senha menor que 6 caracteres!";
-                                }
-                              },
-                            ),
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: FlatButton(
-                                child: Text("Esqueci Senha", style: TextStyle(fontSize: 18),),
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context)  => ResetSenha()
-                                      )
-                                  );
-                                },
-                              ),
-                            ),
-                            SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                ListView(
+                  children: [
+                    Form(
+                      key: _formKey,
+                      child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
                               children: [
-                                FlatButton(
-                                  onPressed: () {
-                                    if(_formKey.currentState.validate()){
-                                      _login();
+                                TextFormField(
+                                  onChanged: (value) {
+                                    _email = value;
+                                  },
+                                  decoration: InputDecoration(
+                                      hintText: "Email"
+                                  ),
+                                  style: TextStyle(fontSize: 25),
+                                  keyboardType: TextInputType.emailAddress,
+                                  validator: (text){
+                                    if(text.isEmpty || !text.contains("@")){
+                                      return "E-mail Inválido!";
                                     }
                                   },
-                                  child: Image.asset("assets/images/tela_padrao/botao-entrar.png",
-                                    width: MediaQuery.of(context).size.width * 0.30,),
                                 ),
-                                FlatButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context)  => HomePage()
-                                        ),
-                                    );
+                                TextFormField(
+                                  onChanged: (value) {
+                                    _password = value;
                                   },
-                                  child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
-                                    width: MediaQuery.of(context).size.width * 0.30,),
+                                  decoration: InputDecoration(
+                                      hintText: "Senha"
+                                  ),
+                                  style: TextStyle(fontSize: 25),
+                                  obscureText: true,
+                                  validator: (text) {
+                                    if(text.isEmpty){
+                                      return "Senha Inválida";
+                                    }
+                                    else if(text.length <6){
+                                      return "Senha menor que 6 caracteres!";
+                                    }
+                                  },
+                                ),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: FlatButton(
+                                    child: Text("Esqueci Senha", style: TextStyle(fontSize: 15),),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context)  => ResetSenha()
+                                          )
+                                      );
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: MediaQuery.of(context).size.width * 0.005,), //Espaço
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    FlatButton(
+                                      onPressed: () {
+                                        if(_formKey.currentState.validate()){
+                                          _login();
+                                        }
+                                      },
+                                      child: Image.asset("assets/images/tela_padrao/botao-entrar.png",
+                                        width: MediaQuery.of(context).size.width * 0.30,),
+                                    ),
+                                    FlatButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context)  => HomePage()
+                                          ),
+                                        );
+                                      },
+                                      child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
+                                        width: MediaQuery.of(context).size.width * 0.30,),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                          ],
-                        ),
-                      )
-                  ),
+                          )
+                      ),
+                    )
+                  ],
                 )
               ]
           )

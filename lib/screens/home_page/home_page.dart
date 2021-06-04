@@ -17,97 +17,105 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.fundoBasico,
-        title: Text(
-            "INICIE SUA AVENTURA", style: TextStyle(
-            color: AppColors.azulFonte,
-            fontSize: 25
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/tela_padrao/tela.png"),
+                  fit: BoxFit.cover
+              )
+          ),
         ),
-        ),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              top: 0.0,
-              child: Image.asset(
-                'assets/images/tela_padrao/tela.png',
-                fit: BoxFit.fill,
-              ),
+        Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: AppColors.fundoBasico,
+            title: Text(
+              "INICIE SUA AVENTURA", style: TextStyle(
+                color: AppColors.azulFonte,
+                fontSize: 25
             ),
-        Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: MediaQuery.of(context).size.width * 0.10,), //Espaço
-            Container(
-              child: Image.asset("assets/images/tela_padrao/logo-menu.png",
-                width: MediaQuery.of(context).size.width * 0.70,),
             ),
-            SizedBox(height: MediaQuery.of(context).size.width * 0.01,), //Espaço
-            Container(
-              //padding: EdgeInsets.only(top: 450.0),
-              child: Center(
-                child: Text("Continuar \nAventura",
-                  style: TextStyle(
-                      color: AppColors.azulFonte,
-                      fontSize: 17
-                  ),
-                ),
-              ),
-            ),
-            //Editar os botoes
-            Container(
-              child: Center(
-                child: FlatButton(
-                  child: Image.asset("assets/images/tela_padrao/botao-entre-menu.png",
-                      width: MediaQuery.of(context).size.width * 0.30,),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context)  => LoginPage()
-                        )
-                    );
-                  },
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.width * 0.01,), //Espaço
-            Container(
-              child: Center(
-                child: Text("Nova Aventura",
-                  style: TextStyle(
-                      color: AppColors.azulFonte,
-                      fontSize: 17
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              child: Center(
-                child: FlatButton(
-                  child: Image.asset("assets/images/tela_padrao/botao-crie-conta-menu.png",
-                    width: MediaQuery.of(context).size.width * 0.30,),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context)  => HomeRegisterPage()
-                        )
-                    );
-                  },
-                ),
-              ),
-            ),
+            centerTitle: true,
+          ),
+          body: SafeArea(
+              child: Stack(
+                  children: <Widget>[
+                    Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(height: MediaQuery.of(context).size.width * 0.10,), //Espaço
+                        Container(
+                          child: Image.asset("assets/images/tela_padrao/logo-menu.png",
+                            width: MediaQuery.of(context).size.width * 0.70,),
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.width * 0.01,), //Espaço
+                        Container(
+                          //padding: EdgeInsets.only(top: 450.0),
+                          child: Center(
+                            child: Text("Continuar \nAventura",
+                              style: TextStyle(
+                                  color: AppColors.azulFonte,
+                                  fontSize: 17
+                              ),
+                            ),
+                          ),
+                        ),
+                        //Editar os botoes
+                        Container(
+                          child: Center(
+                            child: FlatButton(
+                              child: Image.asset("assets/images/tela_padrao/botao-entre-menu.png",
+                                width: MediaQuery.of(context).size.width * 0.30,),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context)  => LoginPage()
+                                    )
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.width * 0.01,), //Espaço
+                        Container(
+                          child: Center(
+                            child: Text("Nova Aventura",
+                              style: TextStyle(
+                                  color: AppColors.azulFonte,
+                                  fontSize: 17
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: Center(
+                            child: FlatButton(
+                              child: Image.asset("assets/images/tela_padrao/botao-crie-conta-menu.png",
+                                width: MediaQuery.of(context).size.width * 0.30,),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context)  => HomeRegisterPage()
+                                    )
+                                );
+                              },
+                            ),
+                          ),
+                        ),
 
-          ],
-        ),
-      ]
-            )
-        ),
-      );
+                      ],
+                    ),
+                  ]
+              )
+          ),
+
+        )
+      ],
+    );
   }
 }

@@ -65,13 +65,6 @@ class _LoginPageState extends State<LoginPage> {
           body: SafeArea(
               child: Stack(
                   children: <Widget>[
-                    Positioned(
-                      top: 0,
-                      child: Image.asset(
-                        'assets/images/tela_padrao/tela.png',
-                        fit: BoxFit.fill,
-                      ),
-                    ),
                     ListView(
                       children: [
                         Form(

@@ -41,101 +41,108 @@ class _HomeRegisterPageState extends State<HomeRegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.fundoBasico,
-          title: Text(
-            "Registra-se", style: TextStyle(
-              color: AppColors.azulFonte, fontSize: 35),
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/tela_padrao/tela.png"),
+                  fit: BoxFit.cover
+              )
           ),
-          centerTitle: true,
         ),
-        body: Stack(
-          children: [
-            Positioned(
-              top: 0.0,
-              child: Image.asset(
-                'assets/images/tela_padrao/tela.png',
-                fit: BoxFit.fill,
+        Scaffold(
+            resizeToAvoidBottomInset: false,
+            backgroundColor: Colors.transparent,
+            appBar: AppBar(
+              backgroundColor: AppColors.fundoBasico,
+              title: Text(
+                "Registra-se", style: TextStyle(
+                  color: AppColors.azulFonte, fontSize: 35),
               ),
+              centerTitle: true,
             ),
-            Form(
-              key: _formKey,
-              child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextFormField(
-                          onChanged: (value) {
-                            _email = value;
-                          },
-                          decoration: InputDecoration(
-                              hintText: "Email"
-                          ),
-                          style: TextStyle(fontSize: 25),
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (text){
-                            if(text.isEmpty || !text.contains("@")){
-                              return "E-mail Inválido";
-                            }
-                          },
-                        ),
-                        TextFormField(
-                          onChanged: (value) {
-                            _password = value;
-                          },
-                          decoration: InputDecoration(
-                              hintText: "Senha"
-                          ),
-                          style: TextStyle(fontSize: 25),
-                          obscureText: true,
-                          validator: (text) {
-                            if(text.isEmpty){
-                              return "Senha Inválida";
-                            }
-                            else if(text.length <6){
-                              return "Senha menor que 6 caracteres!";
-                            }
-                          },
-                        ),
-                        SizedBox(height: 16.0,), //Espaço
-                        Row(
+            body: Stack(
+              children: [
+                Form(
+                  key: _formKey,
+                  child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            MaterialButton(
-                              onPressed: () {
-                                if(_formKey.currentState.validate()){
-                                  _createUser();
+                            TextFormField(
+                              onChanged: (value) {
+                                _email = value;
+                              },
+                              decoration: InputDecoration(
+                                  hintText: "Email"
+                              ),
+                              style: TextStyle(fontSize: 25),
+                              keyboardType: TextInputType.emailAddress,
+                              validator: (text){
+                                if(text.isEmpty || !text.contains("@")){
+                                  return "E-mail Inválido";
                                 }
+                              },
+                            ),
+                            TextFormField(
+                              onChanged: (value) {
+                                _password = value;
+                              },
+                              decoration: InputDecoration(
+                                  hintText: "Senha"
+                              ),
+                              style: TextStyle(fontSize: 25),
+                              obscureText: true,
+                              validator: (text) {
+                                if(text.isEmpty){
+                                  return "Senha Inválida";
+                                }
+                                else if(text.length <6){
+                                  return "Senha menor que 6 caracteres!";
+                                }
+                              },
+                            ),
+                            SizedBox(height: 16.0,), //Espaço
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                MaterialButton(
+                                  onPressed: () {
+                                    if(_formKey.currentState.validate()){
+                                      _createUser();
+                                    }
 
-                              },
-                              child: Image.asset("assets/images/tela_padrao/botao-crie-conta-menu.png",
-                                width: MediaQuery.of(context).size.width * 0.30,),
-                            ),
-                            FlatButton(
-                              child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
-                                width: MediaQuery.of(context).size.width * 0.30,),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context)  => HomePage()
-                                    )
-                                );
-                              },
-                            ),
+                                  },
+                                  child: Image.asset("assets/images/tela_padrao/botao-crie-conta-menu.png",
+                                    width: MediaQuery.of(context).size.width * 0.30,),
+                                ),
+                                FlatButton(
+                                  child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
+                                    width: MediaQuery.of(context).size.width * 0.30,),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context)  => HomePage()
+                                        )
+                                    );
+                                  },
+                                ),
+                              ],
+                            )
+
                           ],
-                        )
-
-                      ],
-                    ),
-                  )
-              ),
+                        ),
+                      )
+                  ),
+                )
+              ],
             )
-          ],
         )
+      ],
     );
   }
 

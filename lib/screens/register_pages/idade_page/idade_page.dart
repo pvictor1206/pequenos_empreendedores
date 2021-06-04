@@ -38,100 +38,107 @@ class _IdadePageState extends State<IdadePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.fundoBasico,
-        title: Text(
-          "EU TENHO...", style: TextStyle(
-            color: AppColors.azulFonte, fontSize: 35),
-        ),
-        centerTitle: true,
-      ),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            top: 0.0,
-            child: Image.asset(
-              'assets/images/tela_padrao/tela.png',
-              fit: BoxFit.fill,
-            ),
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/tela_padrao/tela.png"),
+                  fit: BoxFit.cover
+              )
           ),
-          Column(
-            children: [
-              SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
-
-              Container(
-                child: Center(
-                  child: Container(
-                    child: Image.asset("assets/images/tela_registro/idade-menino.png",
-                      width: MediaQuery.of(context).size.width * 0.75,),
-                  ),
-                ),
-              ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: AppColors.fundoBasico,
+            title: Text(
+              "EU TENHO...", style: TextStyle(
+                color: AppColors.azulFonte, fontSize: 35),
+            ),
+            centerTitle: true,
+          ),
+          body: Stack(
+            children: <Widget>[
+              Column(
                 children: [
-                  FlatButton(
-                      onPressed: (){
-                        setState(() {
-                          _idade -= 1;
-                        });
-                      },
-                      child: Image.asset("assets/images/tela_padrao/botao-diminuir.png",),
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
+
+                  Container(
+                    child: Center(
+                      child: Container(
+                        child: Image.asset("assets/images/tela_registro/idade-menino.png",
+                          width: MediaQuery.of(context).size.width * 0.75,),
+                      ),
+                    ),
                   ),
 
-                  Text("$_idade", style: TextStyle(fontSize: 20, color: AppColors.azulFonte),),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FlatButton(
+                        onPressed: (){
+                          setState(() {
+                            _idade -= 1;
+                          });
+                        },
+                        child: Image.asset("assets/images/tela_padrao/botao-diminuir.png",),
+                      ),
 
-                  FlatButton(
-                    onPressed: (){
-                      setState(() {
-                        _idade += 1;
-                      });
-                    },
-                    child: Image.asset("assets/images/tela_padrao/botao-aumentar.png"),
+                      Text("$_idade", style: TextStyle(fontSize: 20, color: AppColors.azulFonte),),
+
+                      FlatButton(
+                        onPressed: (){
+                          setState(() {
+                            _idade += 1;
+                          });
+                        },
+                        child: Image.asset("assets/images/tela_padrao/botao-aumentar.png"),
+                      ),
+
+                      Text("ANOS",style: TextStyle(fontSize: 25, color: AppColors.azulFonte),),
+
+                    ],
                   ),
 
-                  Text("ANOS",style: TextStyle(fontSize: 25, color: AppColors.azulFonte),),
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.1,),
 
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context)  => NomePage()
+                            ),
+                          );
+                        },
+                        child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
+                          width: MediaQuery.of(context).size.width * 0.30,),
+                      ),
+                      FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context)  => ManutencaoPage()
+                            ),
+                          );
+                        },
+                        child: Image.asset("assets/images/tela_padrao/botao-continuar.png",
+                          width: MediaQuery.of(context).size.width * 0.30,),
+                      ),
+                    ],
+                  ),
                 ],
-              ),
-
-              SizedBox(height: MediaQuery.of(context).size.width * 0.1,),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context)  => NomePage()
-                        ),
-                      );
-                    },
-                    child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
-                      width: MediaQuery.of(context).size.width * 0.30,),
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context)  => ManutencaoPage()
-                        ),
-                      );
-                    },
-                    child: Image.asset("assets/images/tela_padrao/botao-continuar.png",
-                      width: MediaQuery.of(context).size.width * 0.30,),
-                  ),
-                ],
-              ),
+              )
             ],
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

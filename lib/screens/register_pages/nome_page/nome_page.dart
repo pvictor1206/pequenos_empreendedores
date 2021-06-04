@@ -23,94 +23,101 @@ class _NomePageState extends State<NomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.fundoBasico,
-        title: Text(
-          "MEU NOME É...", style: TextStyle(
-            color: AppColors.azulFonte, fontSize: 35),
-        ),
-        centerTitle: true,
-      ),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            top: 0.0,
-            child: Image.asset(
-              'assets/images/tela_padrao/tela.png',
-              fit: BoxFit.fill,
-            ),
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/tela_padrao/tela.png"),
+                  fit: BoxFit.cover
+              )
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
-
-              Form(
-                key: _formKey,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: TextFormField(
-                      keyboardType: TextInputType.text,
-                      //controller: txtnome,
-                      // Ver se da certo
-                      onSaved: (value) {
-                        setState(() {
-                          _nome = value;
-                        });
-                      },
-                      decoration: InputDecoration(
-                          hintText: "Nome"
-                      ),
-                      style: TextStyle(fontSize: 25),
-                      validator: (text){
-                        if(text.isEmpty){
-                          return "Digite um nome";
-                        }
-                      },
-                    ),
-                  ),
-                ),
-              ),
-
-              SizedBox(height: MediaQuery.of(context).size.width * 0.1,),
-
-              Row(
+        ),
+        Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: AppColors.fundoBasico,
+            title: Text(
+              "MEU NOME É...", style: TextStyle(
+                color: AppColors.azulFonte, fontSize: 35),
+            ),
+            centerTitle: true,
+          ),
+          body: Stack(
+            children: <Widget>[
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context)  => SexoPage()
-                        ),
-                      );
-                    },
-                    child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
-                      width: MediaQuery.of(context).size.width * 0.30,),
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      if(_formKey.currentState.validate()){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context)  => IdadePage()
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
+
+                  Form(
+                    key: _formKey,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: TextFormField(
+                          keyboardType: TextInputType.text,
+                          //controller: txtnome,
+                          // Ver se da certo
+                          onSaved: (value) {
+                            setState(() {
+                              _nome = value;
+                            });
+                          },
+                          decoration: InputDecoration(
+                              hintText: "Nome"
                           ),
-                        );
-                      }
-                    },
-                    child: Image.asset("assets/images/tela_padrao/botao-continuar.png",
-                      width: MediaQuery.of(context).size.width * 0.30,),
+                          style: TextStyle(fontSize: 25),
+                          validator: (text){
+                            if(text.isEmpty){
+                              return "Digite um nome";
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.1,),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context)  => SexoPage()
+                            ),
+                          );
+                        },
+                        child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
+                          width: MediaQuery.of(context).size.width * 0.30,),
+                      ),
+                      FlatButton(
+                        onPressed: () {
+                          if(_formKey.currentState.validate()){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context)  => IdadePage()
+                              ),
+                            );
+                          }
+                        },
+                        child: Image.asset("assets/images/tela_padrao/botao-continuar.png",
+                          width: MediaQuery.of(context).size.width * 0.30,),
+                      ),
+                    ],
                   ),
                 ],
-              ),
+              )
             ],
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

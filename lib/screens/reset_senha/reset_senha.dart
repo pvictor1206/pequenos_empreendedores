@@ -20,85 +20,92 @@ class _ResetSenhaState extends State<ResetSenha> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.fundoBasico,
-        title: Text(
-          "Esqueci Senha", style: TextStyle(
-            color: AppColors.azulFonte, fontSize: 35),
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/tela_padrao/tela.png"),
+                  fit: BoxFit.cover
+              )
+          ),
         ),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-          child: Stack(
-              children: <Widget>[
-                Positioned(
-                  top: 0.0,
-                  child: Image.asset(
-                    'assets/images/tela_padrao/tela.png',
-                    fit: BoxFit.fill,
-                  ),
-                ),
-        Form(
-          key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      hintText: ("Email"),
-                    ),
-                    onChanged: (value) {
-                      setState(() {
-                        _email = value;
-                      });
-                    },
-                    style: TextStyle(fontSize: 25),
-                    validator: (text){
-                      if(text.isEmpty || !text.contains("@")){
-                        return "E-mail Inválido!";
-                      }
-                    },
-
-
-                  ),
-                ),
-                SizedBox(height: 16.0,), //Espaço
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FlatButton(
-                      child: Image.asset("assets/images/tela_padrao/botao-recuperar.png",
-                        width: MediaQuery.of(context).size.width * 0.30,),
-                      onPressed: () {
-                        auth.sendPasswordResetEmail(email: _email);
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                    FlatButton(
-                      child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
-                        width: MediaQuery.of(context).size.width * 0.30,),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context)  => LoginPage()
-                            )
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ],
+        Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: AppColors.fundoBasico,
+            title: Text(
+              "Esqueci Senha", style: TextStyle(
+                color: AppColors.azulFonte, fontSize: 35),
             ),
+            centerTitle: true,
+          ),
+          body: SafeArea(
+              child: Stack(
+                  children: <Widget>[
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                              keyboardType: TextInputType.emailAddress,
+                              decoration: InputDecoration(
+                                hintText: ("Email"),
+                              ),
+                              onChanged: (value) {
+                                setState(() {
+                                  _email = value;
+                                });
+                              },
+                              style: TextStyle(fontSize: 25),
+                              validator: (text){
+                                if(text.isEmpty || !text.contains("@")){
+                                  return "E-mail Inválido!";
+                                }
+                              },
 
+
+                            ),
+                          ),
+                          SizedBox(height: 16.0,), //Espaço
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              FlatButton(
+                                child: Image.asset("assets/images/tela_padrao/botao-recuperar.png",
+                                  width: MediaQuery.of(context).size.width * 0.30,),
+                                onPressed: () {
+                                  auth.sendPasswordResetEmail(email: _email);
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                              FlatButton(
+                                child: Image.asset("assets/images/tela_padrao/botao-voltar.png",
+                                  width: MediaQuery.of(context).size.width * 0.30,),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context)  => LoginPage()
+                                      )
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+
+                    )
+                  ]
+              )
+          ),
         )
-              ]
-          )
-      ),
+      ],
     );
   }
 }

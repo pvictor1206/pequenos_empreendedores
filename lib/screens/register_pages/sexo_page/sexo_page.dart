@@ -34,90 +34,97 @@ class _SexoPageState extends State<SexoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.fundoBasico,
-        title: Text(
-          "EU SOU...", style: TextStyle(
-            color: AppColors.azulFonte, fontSize: 35),
-        ),
-        centerTitle: true,
-      ),
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            top: 0.0,
-            child: Image.asset(
-              'assets/images/tela_padrao/tela.png',
-              fit: BoxFit.fill,
-            ),
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/tela_padrao/tela.png"),
+                  fit: BoxFit.cover
+              )
           ),
-          Column(
-            children: [
-              SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
-
-              if(_sexoMenino == true)
-                Container(
-                  child: Center(
-                    child: Container(
-                      child: Image.asset("assets/images/tela_registro/opcao-menino.png",
-                        width: MediaQuery.of(context).size.width * 0.65,),
-                    ),
-                  ),
-                ),
-              if(_sexoMenina == true)
-                Container(
-                  child: Center(
-                    child: Container(
-                      child: Image.asset("assets/images/tela_registro/opcao-menina.png",
-                        width: MediaQuery.of(context).size.width * 0.75,),
-                    ),
-                  ),
-                ),
-
-              SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            backgroundColor: AppColors.fundoBasico,
+            title: Text(
+              "EU SOU...", style: TextStyle(
+                color: AppColors.azulFonte, fontSize: 35),
+            ),
+            centerTitle: true,
+          ),
+          body: Stack(
+            children: <Widget>[
+              Column(
                 children: [
-                  FlatButton(
-                      onPressed: _escolhaSexoMenino,
-                      child: Image.asset("assets/images/tela_registro/escolha-menino.png",
-                        width: MediaQuery.of(context).size.width * 0.28,
-                      )
-                  ),
-                  FlatButton(
-                      onPressed: _escolhaSexoMenina,
-                      child: Image.asset("assets/images/tela_registro/escolha-menina.png",
-                        width: MediaQuery.of(context).size.width * 0.30,
-                      )
-                  ),
-                ],
-              ),
-              SizedBox(height: MediaQuery.of(context).size.width * 0.1,),
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context)  => NomePage()
+                  if(_sexoMenino == true)
+                    Container(
+                      child: Center(
+                        child: Container(
+                          child: Image.asset("assets/images/tela_registro/opcao-menino.png",
+                            width: MediaQuery.of(context).size.width * 0.65,),
                         ),
-                      );
-                    },
-                    child: Image.asset("assets/images/tela_padrao/botao-continuar.png",
-                      width: MediaQuery.of(context).size.width * 0.30,),
-                  ),
-                ],
-              ),
+                      ),
+                    ),
+                  if(_sexoMenina == true)
+                    Container(
+                      child: Center(
+                        child: Container(
+                          child: Image.asset("assets/images/tela_registro/opcao-menina.png",
+                            width: MediaQuery.of(context).size.width * 0.75,),
+                        ),
+                      ),
+                    ),
 
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.05,), //Espaço
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FlatButton(
+                          onPressed: _escolhaSexoMenino,
+                          child: Image.asset("assets/images/tela_registro/escolha-menino.png",
+                            width: MediaQuery.of(context).size.width * 0.28,
+                          )
+                      ),
+                      FlatButton(
+                          onPressed: _escolhaSexoMenina,
+                          child: Image.asset("assets/images/tela_registro/escolha-menina.png",
+                            width: MediaQuery.of(context).size.width * 0.30,
+                          )
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.1,),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context)  => NomePage()
+                            ),
+                          );
+                        },
+                        child: Image.asset("assets/images/tela_padrao/botao-continuar.png",
+                          width: MediaQuery.of(context).size.width * 0.30,),
+                      ),
+                    ],
+                  ),
+
+                ],
+              )
             ],
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

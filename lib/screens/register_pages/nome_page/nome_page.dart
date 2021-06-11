@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pequenos_empreendedores/core/app_colors.dart';
 import 'package:pequenos_empreendedores/screens/register_pages/idade_page/idade_page.dart';
 import 'package:pequenos_empreendedores/screens/register_pages/sexo_page/sexo_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class NomePage extends StatefulWidget {
   //const NomePage({Key key}) : super(key: key);
@@ -18,6 +21,13 @@ class _NomePageState extends State<NomePage> {
   String _nome;
 
   final _formKey = GlobalKey<FormState>();
+
+
+  void teste(){
+    FirebaseFirestore.instance.collection("nomes").doc().set({
+      'nome':'Paulo',
+    });
+  }
 
 
 
@@ -98,6 +108,7 @@ class _NomePageState extends State<NomePage> {
                       ),
                       FlatButton(
                         onPressed: () {
+                          teste();
                           if(_formKey.currentState.validate()){
                             Navigator.push(
                               context,
